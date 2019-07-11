@@ -48,7 +48,7 @@ def dice_number (num_dice)
 		return -1
 
 	else #(resultat_roll_dice >=2) || (resultat_roll_dice<= 4)
-		puts "Tu reste sur la même marche"
+		puts "Tu restes sur la même marche"
 		return 0
 	end
 end
