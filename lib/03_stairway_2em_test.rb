@@ -94,7 +94,8 @@ end
 
 
 
-# --------- LANCEMENT DU PROGRAMME------------
+
+# --------- PLAY ------------
 
 
 
@@ -121,8 +122,8 @@ def play
 	tour = 0 # avant la boucle est à 0 tour
 
 	while (!end_party (num_step)) do
-		puts "Tapes sur la touche 'ENTRÉE' pour lancer le dé"
-		gets.chomp
+		#puts "Tapes sur la touche 'ENTRÉE' pour lancer le dé"
+		#gets.chomp
 		
 		
 		puts " "
@@ -135,8 +136,9 @@ def play
 		step_play(num_step)
 
 		tour +=1 # apres chaque boucle, le tour prend +1
-
+		
 	end
+
 
 puts 	"_____________________§_§§________§___§_________§§_§ 
 		______________________§__§§______§§___§§_______§§_§§
@@ -183,10 +185,53 @@ puts 	"_____________________§_§§________§___§_________§§_§
 		__________________________________§§"	
 
 
-	puts " ------- FIN DE PARTIE : tu as monté(e) les 10 marches en #{tour} de tour --------"	
+	puts " ------- FIN DE PARTIE : tu as monté(e) les 10 marches en #{tour} de tours --------"	
+	return tour
+end	
+
+
+
+
+
+
+
+
+
+# --------- CALCUL DU NOMBRE DE TOUR MOYEN ------------
+
+
+
+
+
+def average_finish_time
+	total_tour = 0
+
+	100.times do
+		total_tour = total_tour + play
+	end	
+
+	average = total_tour /100
+	puts "Sur 100 parties, le nombre de tours moyen pour gagner est de #{average} tours"
+
+end
+
+
+
+
+
+
+# --------- LANCEMENT DU PROGRAMME ------------
+
+
+
+
+def perform
+	play
+	average_finish_time
 
 end	
 
 
 
-play
+
+perform
